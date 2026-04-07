@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MI TARJETA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Baloo 2', sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: black;
+      flex-wrap: wrap;
+    }
+
+    /* Tarjeta */
+    .card {
+      position: relative;
+      width: 300px;
+      max-width: 90%; /* responsive */
+      
+      border-radius: 5px;
+      overflow: hidden;
+      transition: .5s;
+      margin: 15px 20px;
+    }
+
+    /* Primera capa de fondo */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url("https://i.ibb.co/JwG4W0jf/IMG-20260221-WA0001.jpg") no-repeat center center;
+      background-size: cover;
+      animation: mover1 5s infinite linear;
+      z-index: -2;
+    }
+
+    /* Segunda capa de fondo */
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url("https://i.ibb.co/JwG4W0jf/IMG-20260221-WA0001.jpg") no-repeat center center;
+      background-size: cover;
+      opacity: 0.5; /* más tenue */
+      animation: mover2 5s infinite linear;
+      z-index: -1;
+    }
+
+    @keyframes mover1 {
+      0%   { transform: scale(1) translate(0,0); }
+      50%  { transform: scale(1.1) translate(-20px, -10px); }
+      100% { transform: scale(1) translate(0,0); }
+    }
+
+    @keyframes mover2 {
+      0%   { transform: scale(1) translate(0,0); }
+      50%  { transform: scale(1.1) translate(20px, 15px); }
+      100% { transform: scale(1) translate(0,0); }
+    }
+
+    .card:hover {
+      box-shadow: 0 5px 10px rgba(0,0,0,1);
+      transform: translateY(-20px);
+    }
+
+    /* Encabezado */
+    .card .head {
+      height: 125px;
+      width: 100%;
+      position: relative;
+    }
+
+  
+
+.logo-container {
+  width: 220px;       /* tamaño del círculo */
+  height: 220px;      /* mismo valor para ancho y alto */
+  border-radius: 50%; /* recorte circular */
+  overflow: hidden;   /* oculta todo lo que sobresalga */
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo-container img {
+  width: 220px;       /* tamaño del círculo */
+  height: 220px;
+  object-fit: cover;  /* ajusta la imagen dentro del círculo */
+  display: block;
+}
+
+    .card .head .img img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Texto */
+    .card .description {
+      height: 180px;
+      padding: 40px 20px 20px 20px;
+      border-bottom: white solid 1px ;
+      text-align: center;
+      position: relative;
+      z-index: 1; /* encima del fondo */
+    }
+
+    .card .description h2,h4,p,i{
+      animation: animate 10s infinite linear;
+    }
+
+    @keyframes animate {
+      0%,100%{ color:aqua; }
+      25%{ color: deeppink; }
+      50%{ color:deepskyblue; }
+      75%{ color: white; }
+    }
+
+    /* Redes sociales */
+    .card .contact {
+      width: 100%;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size:30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card .contact a {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 100%;
+      transition: .5s;  
+    }
+
+    .card .contact a:hover {
+      background: linear-gradient(to top,blue,black);
+      box-shadow: 0 5px 5px rgba(0,0,0,1);
+      transform: translateY(-10px);
+    }
+
+    /* Botón catálogo */
+    .CATALOGO{
+      position: relative;
+      left:65px;
+      text-align:center;
+      color:white;
+      text-decoration:none;
+      margin:10px;
+      width: 170px;
+      height:40px;
+      padding:5px;
+      font-size: 20px;
+      border-radius: 20px;
+      border: 1px white solid;
+      box-shadow:0px 0px 10px 1px white;
+      text-shadow: -2px 1px purple;
+      background: linear-gradient(-45deg,white, blue,black,blue,white );
+      background-size: 300%;
+      animation: bg-animation 20s infinite;
+      z-index: 1;
+    }
+
+    @keyframes bg-animation {
+      0% { background-position: left; }
+      50% { background-position: right; }
+      100% { background-position: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+  
+  <div class="logo-container">
+  <img src="https://i.ibb.co/fY34qXyZ/luznet.png
+  " alt="Logo LuzNet">
+</div>
+    
+    <div class="description">
+      <h2>FELIPE MARTINEZ</h2>
+      <h4>DISEÑADOR WEB</h4>
+      <p>ESPECIALIZADO EN TARJETAS DIGITALES</p>
+    </div>
+    <div class="contact">
+      <a href="tel:3312381872"><i class="fa fa-phone"></i></a>
+      <a href="https://wa.me/qr/K3HPFDZLSFINP1"><i class="fa fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/Digital-World-100310082725612/"><i class="fa fa-facebook"></i></a>
+      <a href="http://tiktok.com/@felipemartinez5483"><i class="fa fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/invites/contact/?i=1qfx13l6t6gy5&utm_content=g1iuoqt"><i class="fa fa-instagram"></i></a>
+      <a href="https://youtube.com/c/FELIPEMARTINEZCOMPOSITOR"><i class="fa fa-youtube"></i></a>
+      <a href="mailto:felipemartinez84@live.com.mx?Subject=bienvenido"><i class="fa fa-envelope-open"></i></a>
+    </div>
+    <div class="CATALOGO">
+      <a href="https://felipe021284.github.io/CATALOGO-V1/"><i class="fa fa-hand-o-right"> CATALOGO</i></a>
+    </div>
+  </div>
+</body>
+</html>
