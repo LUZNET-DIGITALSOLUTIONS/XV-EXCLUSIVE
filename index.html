@@ -6,631 +6,181 @@
    ========================================= -->
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-
-  <meta property="og:title" content="Invitaciones LuzNet">
-  <meta property="og:description" content="Invitacion digital web.">
-  <meta property="og:image" content="https://i.ibb.co/mFD8qrKb/portada-Luznet.jpg">
-  <meta property="og:url" content="https://felipe021284.github.io/INVITACI-N-DIGITAL/">
-
   <title>INVITACION DIGITAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Lobster&family=Pacifico&family=Shadows+Into+Light&family=Dancing+Script&family=Raleway&family=Oswald&family=Playfair+Display&family=Indie+Flower&display=swap" rel="stylesheet">
+
   <style>
-      body {
-  margin: 0;
-  background-color: black;
-}
+    body {
+      margin: 0;
+      background-color: black;
+    }
 
-.padre {
-  font-family: 'Shadows Into Light', cursive;
+   .padre {
+   font-family: 'Dancing Script';
+   cursive;
+/*  font-family: 'Shadows Into Light', cursive;*/
   display: flex;
-  flex-direction: column;
-  justify-content: center;   /* centra verticalmente */
-  align-items: center;       /* centra horizontalmente */
-  width: 100%;
-  min-height: 100vh;         /* ocupa toda la pantalla */
-  overflow-x: hidden;
-}
-
-/* Responsive: en PC los hijos en fila y centrados */
-@media (min-width: 768px) {
-  .padre {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .hijo {
-    width: 400px;
-    height: 600px;
-    margin: 20px;
-  }
-}
-
-.hijo {
-font-family: 'Shadows Into Light';
-  border-radius: 10px;
-  border: 1px solid #FFD700; /* dorado puro */
-  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),   /* halo cercano */
-    0 0 24px rgba(255, 215, 0, 0.5),   /* brillo medio */
-    0 0 36px rgba(255, 215, 0, 0.3);   /* resplandor lejano */
-  width: 90%;
-  max-width: 400px;
-  height: 600px;             /* altura fija para centrar */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column; /* apila verticalmente */
+  justify-content: flex-start; /* que inicie desde arriba */
   align-items: center;
-  font-weight: bold;
-  color:black;
-  background-image: url("https://i.ibb.co/Kcf7vx1p/image-1770932827305.jpg");
-  background-size: 100% 100%;
-  background-position: center;
-  box-sizing: border-box;
-  opacity: 0; /* oculto hasta que se active */
-  transition: opacity 2s ease;
-  position: relative;
-  overflow: hidden;
-  margin: 20px auto;         /* centrado horizontal en móvil */
-  animation: animationcolor 10s infinite;
-  text-align: center;        /* asegura que el texto se centre */
+  min-height: 100vh;
+  gap: 40px; /* espacio entre hijo1 y hijo2 */
 }
+   
 
-.hijo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3); /* filtro más suave */
-  z-index: 0; /* importante para no tapar el contenido */
-}
-.hijo * {
-  position: relative;
-  z-index: 1;
-}
+    .hijo {
+     border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+      width: 90%;
+      max-width: 400px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-image: url("https://i.ibb.co/84QFW5M2/xv-a-os.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+      text-align: center;
+      margin:10px;
+    }
 
-.hijo p {
-  margin: 0; /* elimina márgenes por defecto */
-}
+    .hijo.visible {
+      opacity: 1;
+    }
+    
+    h1{
+        animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
+        font-size: 2.8em;
+    }
+    p{
+        font-family: Times New Roman;
+    }
+    
+    /* Animación de cambio de color */
+    @keyframes colorShift {
+      0%   { color:deeppink; text-shadow: 0 0 10px black; }
+      50%  { color: #FFFFFF; text-shadow: 0 0 15px black; }
+      100% { color:deeppink; text-shadow: 0 0 20px black
+      ; }
+    }
 
-/* Animaciones */
-@keyframes textoDerechaIzquierda {
-  0% { transform: translateX(100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes textoIzquierdaDerecha {
-  0% { transform: translateX(-100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes zoomGiro {
-  0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); opacity: 1; }
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+    #matrix-text {
+      font-size: 2.8em;
+      white-space: pre;
+      animation: colorShift 3s infinite alternate;
+    }
 
-/* Estilo contador */
-#contador  {
-  font-size: 22px;
-  font-family: 'Shadows Into Light', cursive;
-  text-align: center;
-  width: 280px;
-  margin: 0 auto;
-  display: block;
-  animation: pulse 1s infinite; /* zoom constante */
-}
+    /* Animación Matrix para cada letra */
+    #matrix-text span {
+      opacity: 0;
+      transform: translateY(-400px);
+      display: inline-block;
+      animation: caer 3s forwards;
+    }
 
-/* Clases activadas por Intersection Observer */
-.hijo.activo { opacity: 1; }
-.hijo1 h1 { opacity: 0; }
-.hijo1 p { opacity: 0; }
-.hijo1.activo h1 { animation: textoDerechaIzquierda 2s forwards; }
-.hijo1.activo p { animation: textoIzquierdaDerecha 2s forwards; }
+    @keyframes caer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.hijo2 p { opacity: 0; }
-.hijo2.activo p { animation: zoomGiro 3s forwards; }
+    .space {
+      display: inline-block;
+      width: 0.5em; /* espacio visible */
+    }
 
-.hijo3 h1 { opacity: 0; }
-.hijo3.activo h1 { animation: fadeIn 2s forwards; }
+    /* Animaciones para los demás elementos */
+    #slide-p {
+    font-size: 1.5em;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    #slide-p.visible {
+      animation: slideRight 5s forwards, colorShift 3s infinite alternate;
+    }
+    @keyframes slideRight {
+      to { opacity: 1; transform: translateX(0); }
+    }
 
-/* Animaciones */
-@keyframes animationcolor {
-  0%,100% { color:#FFD700; }
-  25% { color:white; }
-  50% { color:#FFD700; }
-  75% { color:white; }
-}
-
-/* Reproductor */
-.audio-player {
-  border: 1px solid #FFD700;
+    #link1 {
+    font-size: 1.5em;
+      opacity: 0;
+      transform: translateY(-400px);
+      text-decoration: none;
+      
+      font-family: Times New Roman;
   border-radius: 40px;
   padding: 15px;
   width: 180px;
   background-color: transparent;
-  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 0.7),
-    0 0 24px rgba(255, 215, 0, 0.5),
-    0 0 36px rgba(255, 215, 0, 0.3);
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
   text-align: center;
-  animation: textoIzquierdaDerecha 2s;
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 
-      0 0 12px rgba(255, 215, 0, 0.7),
-      0 0 24px rgba(255, 215, 0, 0.5),
-      0 0 36px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    box-shadow: 
-      0 0 18px rgba(255, 215, 0, 1),
-      0 0 30px rgba(255, 215, 0, 0.7),
-      0 0 45px rgba(255, 215, 0, 0.5);
-  }
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  animation: animationcolor 10s infinite;
-}
-
-.controls button {
-  background: transparent;
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  font-size: 20px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.7),
-    0 0 16px rgba(255, 215, 0, 0.5);
-  transition: transform 0.2s, color 0.3s;
-}
-
-.controls button:hover {
-  transform: scale(1.2);
-  box-shadow: 
-    0 0 12px rgba(255, 215, 0, 1),
-    0 0 24px rgba(255, 215, 0, 0.7);
-}
-
-.progress {
-  flex: 1;
-  height: 8px;
-  background: rgba(255, 215, 0, 0.2);
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-}
-
-.progress-filled {
-  height: 100%;
-  width: 0%;
-  background: #FFD700;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #FFD700;
-  transition: width 0.2s;
-}    
-
-/* Animación de zoom infinito */
-@keyframes zoomInfinite {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-    color: #FFD700; /* dorado */
-  }
-  50% {
-    transform: scale(1.3); /* se agranda */
-    opacity: 1;
-    color: white; /* alterna a blanco */
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    color: #FFD700; /* regresa a dorado */
-  }
-}
-
-/* Clase aplicada al h1 "Dale Play" */
-.daleplay {
-  animation: pulse 1s infinite forwards;
-}
-img{
-    width:70%;
-    height:30%;
-    
-    
-    border: 1px solid #FFD700;
-  box-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.7),
-    0 0 16px rgba(255, 215, 0, 0.5);
-/*  transition: transform 0.2s, color 0.3s;*/
-  border-radius: 10px;
-}
-
-@keyframes girar {
-  0%   { transform: rotate(0deg) scale(0.8); opacity: 0; }
-  50%  { transform: rotate(180deg) scale(1.1); opacity: 1; }
-  100% { transform: rotate(360deg) scale(1); opacity: 1; }
-}
-
-/* Imagen dentro del div 3 */
-.hijo3 img {
-  opacity: 0; /* estado inicial */
-  transform: rotate(0deg);
-}
-
-.hijo3.activo img {
-  animation: girar 5s ease-out forwards; /* duración ajustable */
-}
-
-.gps {
-  display: flex;              /* usa flex para centrar el texto */
-  justify-content: center;
-  align-items: center;
-  box-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.7),
-    0 0 16px rgba(255, 215, 0, 0.5);
-  transition: transform 0.2s, color 0.3s;
-
-  width: 165px;
-  padding: 8px 0;
-  margin-top: 30px;           /* separación respecto a la imagen */
-  
-  border: 1px solid #FFD700;   /* borde dorado LuzNet */
-  border-radius: 50px;         /* ovalado */
-  background-color: transparent;
-  
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 22px;
-  color: #decba5;
-  text-align: center;
-
-  /* Animaciones combinadas */
-  animation: zoomPulse 2s infinite ease-in-out,
-             colorPulse 4s infinite linear,
-             animationcolor 10s infinite; /* mismo efecto que h y p */
-}
-
-/* Animación de zoom pulsante */
-@keyframes zoomPulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-/* Animación de cambio de color */
-@keyframes colorPulse {
-  0%, 100% { color: #decba5; }
-  50%      { color: white; }
-}
-
-/* Estilo del enlace */
-.gps a {
-  text-decoration: none;
-  color: inherit; /* hereda el color del contenedor */
-}
-
-
-/*efecto hijo 3*/
-.hijo3 {
-  opacity: 0; /* estado inicial */
-}
-
-.hijo3.activo {
-  animation: encendidoLento 5s ease forwards; /* duración lenta */
-}
-
-.hijo3.activo h1,
-.hijo3.activo p {
-  animation: encendidoLento 5s ease forwards, animationcolor 10s infinite;
-}
-
-@keyframes matrixFall {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.hijo3 p,
-.hijo3 h1 {
-  opacity: 0;
-  display: inline-block; /* necesario para animar cada letra */
-}
-
-.hijo3.activo p,
-.hijo3.activo h1, 
-.hijo3.activo a
-{
-  animation: matrixFall 5s ease forwards,
-  animationcolor 10s infinite
-}
-
-
-
-/* slider div 5*/
-/* Slider contenedor */
-.slider {
-  width: 270px;
-  height: 300px;
-  overflow: hidden;
-  border: 1px solid #FFD700
-  ;
-  border-radius: 10px;
-  margin: 10px;
-  box-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.7),
-    0 0 16px rgba(255, 215, 0, 0.5);
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 290px;       /* igual al slider */
-  height: 300px;      /* igual al slider */
-  flex-shrink: 0;
-  object-fit: cover;  /* recorta y ajusta */
-  display: block;
-}
-
-/* Indicadores (dots) */
-.indicator {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 8px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  background: rgba(255,215,0,0.4);
-  border-radius: 50%;
-  transition: background 0.3s, transform 0.3s;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #FFD700;
-  transform: scale(1.2);
-}
-
-
-/*efecto matrix*/
- .matrix-container {
-      font-size: 2rem;
+  margin:10px;
+    }
+    #link1.visible {
+      animation: downLink 5s forwards, colorShift 3s infinite alternate;
+    }
+    @keyframes downLink {
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes matrixFall {
-      0% {
-        transform: translateY(-100vh); /* empieza arriba */
-        opacity: 0;
-      }
-      70% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0); /* se detiene en su lugar */
-        opacity: 1;
-      }
-    }
-
-    .matrix-container span {
+    #link2 {
       opacity: 0;
-      display: inline-block;
-      animation: matrixFall 1s ease forwards;
+      transform: rotate(-180deg);
+      
+      font-family: Times New Roman;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+  text-align: center;
+  margin:10px;
+    }
+    #link2.visible {
+      animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    @keyframes rotateLink {
+      to { opacity: 1; transform: rotate(0); }
     }
 
-    .matrix-container .space {
-      display: inline-block;
-      width: 0.6em; /* ancho del espacio */
+    #link3 {
+      opacity: 0;
+      transform: scale(0.2);
+      text-decoration: none;
+      font-size: 1.5em;
+      font-family: Times New Roman;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+  text-align: center;
+  margin:10px;
+    }
+    #link3.visible {
+      animation: zoomLink 5s forwards ease-out, colorShift 3s infinite alternate;
+    }
+    @keyframes zoomLink {
+      to { opacity: 1; transform: scale(1); }
     }
     
-    /* Párrafo más grande */
-.hijo5 p.zoom {
-  font-size: 20px; /* ajusta según lo grande que lo quieras */
-}
-
-.btn{
-  font-size: 20px; 
-animation:  animationcolor 10s infinite;
-  /* ajusta según lo grande que lo quieras */
-}
-
-
-    
-  .zoom {
-  transform: scale(0.2);
-  opacity: 0;
-}
-
-@keyframes zoomIn {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.zoom.visible {
-  animation: zoomIn 1.5s forwards ease-out;
-}
-
-.hijo6 span {
-  display: inline-block; /* sin opacity base para que no se apaguen */
-}
-
-@keyframes christmasLight {
-  0%   { opacity: 0.1; color:white; }
-  50%  { opacity: 1; color:white; text-shadow: 0 0 10px #FFD700; }
-  100% { opacity: 1; color: #FFD700; /*text-shadow: 0 0 15px #FFD700;*/ }
-}
-
-@keyframes colorShift {
-  0%   { color: white; text-shadow: 0 0 15px #FFD700; } /* dorado brillante */
-  50%  { color:white; text-shadow: 0 0 15px #FFFFFF; } /* blanco brillante */
-  100% { color: #FFD700; text-shadow: 0 0 15px #FFD700; } /* dorado brillante */
-}
-
-.hijo6 span.on {
-  animation: christmasLight 1s forwards;
-}
-
-.hijo6 span.colorCycle {
-  animation: colorShift 4s infinite ease-in-out;
-}
-
-hr {
-  border: none;              /* elimina el estilo por defecto */
-  height: 1px;               /* grosor de la línea */
-  background: #FFD700;       /* color dorado */
-  margin: 20px auto;         /* espacio arriba y abajo */
-  width: 60%;                /* ancho de la línea */
-}
-/* ====== Contenedor general del div 7 ====== */
-.hijo7 {
-  text-align: center;   /* centra todo el contenido */
-  padding: 20px;
-}
-
-/* ====== H1 con efecto Matrix + ciclo de color ====== */
-#matrix-h1 {
-  margin-bottom: 15px;
-}
-
-#matrix-h1 .space {
-  display: inline-block;
-  width: 0.6em;
-}
-
-@keyframes matrixFade {
-  from { opacity: 0; transform: translateY(-20px); color:#000; }
-  to   { opacity: 1; transform: translateY(0); color:#FFD700; }
-}
-
-#matrix-h1 span {
-  opacity: 0;
-  display: inline-block;
-  animation: matrixFade 0.5s forwards;
-}
-
-#matrix-h1 span.colorCycle {
-  animation: animationcolor 6s infinite ease-in-out;
-}
-
-/* ====== Párrafos con efecto olas ====== */
-.hijo7 p {
-  text-align: center;   /* centra el texto */
-/*  margin: 10px auto;*/
-  width: 100%;
-}
-/*
-.hijo7 p .space {
-  display: inline-block;
-  width: 0.6em;
-}
-*/
-/*
-.hijo7 p span {
-  display: inline;*/ /* importante para que text-align funcione 
-}
-*/
-/*
-.hijo7 p span.on {
-  animation: matrixFade 0.5s forwards;
-}*/
-/*
-.hijo7 p span.colorCycle {
-  animation: animationcolor 6s infinite ease-in-out;
-}*/
-
-/* ====== Animación olas de playa (ciclo dorado ↔ blanco) ====== */
-@keyframes animationcolor {
-  0%,100% { color:#FFD700; }
-  25% { color:white; }
-  50% { color:#FFD700; }
-  75% { color:white; }
-}
-
-/* ====== Imagen con zoom ====== */
-.zoom-img {
-  width: 50px;
-  height: auto;
-  transform: scale(0.2);
-  opacity: 0;
-  margin-top: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; /* centra la imagen */
-}
-
-@keyframes zoomInImg {
-  to { transform: scale(1); opacity: 1; }
-}
-
-.zoom-img.visible {
-  animation: zoomInImg 2s forwards ease-out;
-}
-
-
-
-/*
-#matrix-h1 span,
-.hijo7 p span{
-  display: inline-block;
-  animation: animationcolor 6s infinite ease-in-out;
-}*/
-/* H1: efecto olas infinito */
-#matrix-h1 span {
-  display: inline-block;
-  animation: animationcolor 6s infinite ease-in-out;
-}
-
-/* Párrafos: efecto olas que se ejecuta una sola vez */
-.hijo7 p span {
-  display: inline-block;
-  animation: animationcolor 6s ease-in-out forwards; /* sin infinite */
-}
-
-/*div8*/
-
-
-.hijo8 {
-  
-}
-
-/* Capa de píxeles encima */
-.overlay {
+    .overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -638,12 +188,13 @@ hr {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(5, 1fr);
   z-index: 10;
+  pointer-events: none; /* no bloquea clics */
 }
 
 .pixel {
   background: black; /* dorado ceremonial */
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity .1s ease;
   aspect-ratio: 1 / 1;
 }
 
@@ -651,609 +202,143 @@ hr {
   opacity: 0;
 }
   </style>
-
-  
 </head>
 <body>
   <div class="padre">
+  
     <div class="hijo hijo1">
-      <h1><br />Nombre del evento</h1>
-      <p>En este apartado van <br /> palabras de agradecimiento <br /> y un audio opcional</p>
-      <div class="daleplay">
-      <h1 >Dale Play</h1>
-      </div>
-      <div class="audio-player">
-    <audio id="song">
-      <source src="https://dl.dropbox.com/scl/fi/49eacpxgv0tmsts97l530/Bogota-MP3_160K.mp3?rlkey=gk0ibk5ld4qde03maaiuz8soy&st=v99fbfsg&dl=0
-      " type="audio/mp3">
-      Tu navegador no soporta audio HTML5.
-    </audio>
-
-    <div class="controls">
-      <button id="playPause">▶</button>
-      <div class="progress" id="progress">
-        <div class="progress-filled" id="progressFilled"></div>
-      </div>
-      <button id="mute">🔇</button>
-    </div>
+    <div class="overlay"></div>
+      <div class="seccion">
+      <h1 id="matrix-text" data-text="Lista de invitados"></h1>
+    
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=596167547&single=true&range=B1:C50"></iframe>
   </div>
-      
-     
-    </div>
 
+  <div class="seccion">
+    <h1>Conteo</h1>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=2041570483&single=true
+    "></iframe>
+  </div>
+    </div>
+    
+    
     <div class="hijo hijo2">
-    <h1>Informacion del evento</h1>
-      <p>En este apartado va información <br>
-        sobre lugar, fecha y hora del evento <br>
-        como también un contador regresivo</p>
-      <div id="contador"></div>
-    </div>
-
-<div class="hijo hijo6" id="hijo6">
-  <h1 data-text="Agenda de actividades"></h1>
-  <p data-text="En este apartado van los horarios
-De las distintas actividades del evento"></p>
-  <ul>
-    <li data-text=" 🕒 7:00 PM – Recepción"></li>
-    <li data-text="🍽️ 8:00 PM – Cena"></li>
-    <li data-text="🎶 9:30 PM – Baile"></li>
-    <li data-text="🥂 11:00 PM – Brindis"></li>
-  </ul>
-</div>
-
-    <div class="hijo hijo3 subir">
-      <h1>Ubicacion del evento</h1>
-      <p>En este apartado van  los detalles  <br /> de la ubicacion por
-       texto, enlace al maps,<br />
-       una foto ya sea del exterior o del interior</p>
+      <!-- data-text contiene la frase final -->
+      <h1 id="matrix-text" data-text="Enlace"></h1>
        
-       <img src="https://i.ibb.co/Kc06V9bJ/images-7.jpg" alt="images (7)" border="0">
-       
-       <div class="gps">
- 
-    <a href="https://maps.app.goo.gl/4um9YVqEmjJ7LZX8A" target="_blank">
-      <i class="fa fa-street-view" aria-hidden="true"></i> Ubicación
-    </a>
-  </div>
+      <p id="slide-p">En este apartado va el enlace <br /> a la invitacion
+          
+      </p>
+      <a id="link1" href="sobre 1.html">Invitado </a>
+      
     </div>
-    
-    <div class="hijo hijo4">
-    
-  
-    <div class="matrix-container">
-     <p id="matrix-text" data-text="Sección de fotos">Sección de fotos</p>
-  </div>
-    
-    <div class="slider">
-    
-  <div class="slides">
-  
-   
-    <img src="https://i.ibb.co/RkWbjdjz/hermoso-arreglo-rosas-23-2150737457.jpg
-    " alt="Foto 1">
-    <img src="https://i.ibb.co/39p3ZcQM/premium-photo-1661883809211-eb59f508b3d9.jpg
-    " alt="Foto 2">
-    <img src="https://i.ibb.co/qLsG4q5N/images-8.jpg
-    " alt="Foto 3">
-  </div>
-</div>
-
-<!-- Barra indicadora (fuera del slider) -->
-<div class="indicator">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
-    
-    
-  
-  
-</div>
-      
-      </div>
-      
-      <div class="hijo hijo8" id="hijo8">
-  <h2>Confirmacion de asistencia</h2>
-  <iframe 
-  src="https://script.google.com/macros/s/AKfycbzCH9sAwPCe9Rs3KK6ivLDIosRcVbUJfsjXAcobrGGZXV8OiBAKjJMjDPZ8onJt8zfd/exec
-  " 
-  width="300" 
-  height="350" 
-  
-  style="border:none;" background:transparent;"
-        frameborder="0"
-  >
-</iframe>
-</div>
-
-
-      <div class="hijo hijo5">
-  <h1 class="zoom">Qr pase de entrada</h1>
-  <img class="zoom" src="https://i.ibb.co/TDNcdSs0/QR1.jpg
-  " alt="pase-1">
-  
-</div>
-      
-       <div class="hijo hijo7" id="hijo7">
-  <h1 id="matrix-h1" data-text="Gracias por asistir"></h1>
-
-<p id="matrix-p1" data-text="agradezco tu presencia.">
-
-<p id="matrix-p3" data-text="en este evento tan solemne.">
-    
-    
-</p><hr><br /><br /><br /><br /><br />
-<p id="matrix-p2" data-text="✨Invitaciones LuzNet✨"></p>
-
-<p id="matrix-p4" data-text="✨agradece tu preferencia✨"></p>
-  
-  <div class="footer-img">
-  <!--p>Invitaciones LuzNet agradece tu preferencia.</p-->
-  <img class="zoom-img" src="https://i.ibb.co/7tCWCQ6x/image-1771479727259.jpg" alt="Logo LuzNet">
-  </div>
-  
-</div>
     
   </div>
 
   <script>
- 
-// Intersection Observer para activar animaciones al entrar en pantalla
-const hijos = document.querySelectorAll('.hijo');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Reiniciar animación CSS: quitar y volver a poner la clase
-      entry.target.classList.remove('activo');
-      void entry.target.offsetWidth; // fuerza reflow
-      entry.target.classList.add('activo');
+// Función genérica para preparar el efecto Matrix
+function prepararMatrixTexto(elemento) {
+  if (!elemento) return;
 
-      // Para hijo4: activar efecto Matrix cada vez que aparece
-      if (entry.target.classList.contains('hijo4')) {
-        prepararMatrixTexto();
-      }
-    }
-  });
-}, { threshold: 0.5 });
+  const texto = elemento.getAttribute('data-text');
+  elemento.textContent = ''; // limpiar contenido
 
-hijos.forEach(hijo => observer.observe(hijo));
+  const indices = [...texto.split('').keys()];
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
 
-
-
-    // Contador regresivo (2 de diciembre)
-    const hoy = new Date();
-    let year = hoy.getFullYear();
-    let cumple = new Date(year, 11, 2);
-    if (hoy > cumple) {
-      cumple = new Date(year + 1, 11, 2);
-    }
-
-    function actualizarContador() {
-      const ahora = new Date().getTime();
-      const distancia = cumple.getTime() - ahora;
-
-      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-      const contador = document.getElementById("contador");
-      contador.innerHTML = dias + " días " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
-
-      if (distancia < 0) {
-        contador.innerHTML = "🎉 ¡Feliz cumpleaños Felipe! 🎉";
-      }
-    }
-
-    setInterval(actualizarContador, 1000);
- 
-   //reproductor 
-    
-    const song = document.getElementById("song");
-    const playPauseBtn = document.getElementById("playPause");
-    const muteBtn = document.getElementById("mute");
-    const progress = document.getElementById("progress");
-    const progressFilled = document.getElementById("progressFilled");
-
-    // Play/Pause
-    playPauseBtn.addEventListener("click", () => {
-      if (song.paused) {
-        song.play();
-        playPauseBtn.textContent = "⏯"; 
-      } else {
-        song.pause();
-        playPauseBtn.textContent = "▶"; 
-      }
-    });
-
-    // Mute/Unmute
-    muteBtn.addEventListener("click", () => {
-      song.muted = !song.muted;
-      muteBtn.textContent = song.muted ? "🔊" : "🔇";
-    });
-
-    // Actualizar barra de progreso
-    song.addEventListener("timeupdate", () => {
-      const percent = (song.currentTime / song.duration) * 100;
-      progressFilled.style.width = percent + "%";
-    });
-
-    // Saltar en la barra
-    progress.addEventListener("click", (e) => {
-      const rect = progress.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const width = rect.width;
-      const percent = clickX / width;
-      song.currentTime = percent * song.duration;
-    });
-    
-   
-    
-    
-    
-    //barra
-    
-
-//frase matrix
-
-
-
-
-// Función para preparar el efecto Matrix
-
-
-// Observer para hijo4
-const hijo4 = document.querySelector('.hijo4');
-const observer4 = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      prepararMatrixTextoDiv4('matrix-text'); // activa efecto Matrix en el título
-      iniciarSliderDiv4(); // activa slider
-    }
-  });
-}, { threshold: 0.5 });
-
-if (hijo4) observer4.observe(hijo4);
-
-
-// Función Matrix exclusiva para div4
-function prepararMatrixTextoDiv4(elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  const texto = el.getAttribute('data-text');
-  el.textContent = '';
-
-  [...texto].forEach((letra, i) => {
+  texto.split('').forEach((letra, i) => {
     const span = document.createElement('span');
     if (letra === ' ') {
       span.className = 'space';
-      span.innerHTML = '&nbsp;';
     } else {
       span.textContent = letra;
-      span.style.animationDelay = (i * 0.2) + 's';
-      span.style.animationName = 'matrixFall'; // 👈 usa tu animación Matrix
+      const delay = indices[i] * 0.2;
+      span.style.animationDelay = delay + 's';
     }
-    el.appendChild(span);
+    elemento.appendChild(span);
   });
 }
 
+// Generar píxeles automáticamente para overlay en hijo1
+const overlay = document.querySelector('.hijo1 .overlay');
+if (overlay) {
+  for (let i = 0; i < 200; i++) {
+    const px = document.createElement('div');
+    px.className = 'pixel';
+    overlay.appendChild(px);
+  }
+}
 
-// Slider exclusivo para div4
-function iniciarSliderDiv4() {
-  const slides = hijo4.querySelector('.slides');
-  const dots = hijo4.querySelectorAll('.dot');
-  let index = 0;
-  let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  const total = dots.length;
+// Animar el pixel reveal con orden aleatorio
+function pixelReveal() {
+  const pixels = Array.from(document.querySelectorAll('.hijo1 .pixel'));
 
-  function updateIndicator() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
+  // Mezclar el array de píxeles (Fisher-Yates)
+  for (let i = pixels.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pixels[i], pixels[j]] = [pixels[j], pixels[i]];
   }
 
-  slides.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
+  // Ocultar en orden aleatorio
+  pixels.forEach((px, i) => {
+    setTimeout(() => {
+      px.classList.add('hide');
+    }, i * 10);
   });
-
-  slides.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (diff < -50 && index < total - 1) index++;
-    if (diff > 50 && index > 0) index--;
-
-    currentTranslate = -index * slides.clientWidth;
-    slides.style.transform = `translateX(${currentTranslate}px)`;
-    prevTranslate = currentTranslate;
-
-    updateIndicator();
-  });
-
-  // Inicializar
-  updateIndicator();
 }
 
-// Observer para hijo5
-const hijo5 = document.querySelector('.hijo5');
-
-const observer5 = new IntersectionObserver((entries) => {
+// Observer para hijo1 (Matrix + Pixel)
+const hijo1 = document.querySelector('.hijo1');
+const observer1 = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Activar zoom en todos los elementos con clase .zoom dentro de hijo5
-      const zoomElements = hijo5.querySelectorAll('.zoom');
-      zoomElements.forEach(el => {
-        el.classList.remove('visible');
-        void el.offsetWidth; // reflow
-        el.classList.add('visible');
+      entry.target.classList.add('visible');
+
+      // Reiniciar píxeles
+      document.querySelectorAll('.hijo1 .pixel').forEach(px => {
+        px.classList.remove('hide');
+      });
+
+      // Matrix en hijo1
+      const matrix1 = document.querySelector('.hijo1 #matrix-text');
+      prepararMatrixTexto(matrix1);
+
+      // Pixel reveal aleatorio
+      pixelReveal();
+    }
+  });
+}, { threshold: 0.5 });
+
+if (hijo1) observer1.observe(hijo1);
+
+// Observer para hijo2 (Matrix + enlaces y texto)
+const hijo2 = document.querySelector('.hijo2');
+const observer2 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Matrix en hijo2
+      const matrix2 = document.querySelector('.hijo2 #matrix-text');
+      prepararMatrixTexto(matrix2);
+
+      // Animaciones de enlaces
+      ['slide-p','link1','link2','link3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('visible');
+          void el.offsetWidth;
+          el.classList.add('visible');
+        }
       });
     }
   });
 }, { threshold: 0.5 });
 
-if (hijo5) {
-  observer5.observe(hijo5);
-}
-// Observer para activar el efecto cuando aparece en pantalla
-const hijo6 = document.getElementById('hijo6');
-const observer6 = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      prepararLucesNavidad('hijo6');
-    }
-  });
-}, { threshold: 0.5 });
-
-if (hijo6) {
-  observer6.observe(hijo6);
-}
-
-function prepararLucesNavidad(divId) {
-  const cont = document.getElementById(divId);
-  if (!cont) return;
-
-  // convertir cada texto en spans
-  const elementos = cont.querySelectorAll('[data-text]');
-  elementos.forEach(el => {
-    const texto = el.getAttribute('data-text');
-    el.textContent = ''; // limpiar contenido original
-
-    [...texto].forEach(letra => {
-      if (letra === ' ') {
-        const span = document.createElement('span');
-        span.innerHTML = '&nbsp;';
-        el.appendChild(span);
-      } else if (letra === '\n') {
-        el.appendChild(document.createElement('br'));
-      } else {
-        const span = document.createElement('span');
-        span.textContent = letra;
-        el.appendChild(span);
-      }
-    });
-  });
-
-  // seleccionar todos los spans creados
-  const spans = Array.from(cont.querySelectorAll('span'));
-  let pendientes = spans.map((_, i) => i);
-
-  // encendido aleatorio
-  const interval = setInterval(() => {
-    if (pendientes.length === 0) {
-      clearInterval(interval);
-      // todas encendidas → activar ciclo sincronizado
-      spans.forEach(span => span.classList.add('colorCycle'));
-      return;
-    }
-    const randIndex = Math.floor(Math.random() * pendientes.length);
-    const idx = pendientes[randIndex];
-    spans[idx].classList.add('on');
-    pendientes.splice(randIndex, 1);
-  }, 50); // velocidad de encendido
-}
-
-// Observer para hijo7
-const hijo7 = document.getElementById('hijo7');
-const observer7 = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Procesar h1 y párrafos con data-text
-      prepararMatrixTexto('matrix-h1');
-      prepararMatrixTexto('matrix-p1');
-      prepararMatrixTexto('matrix-p2');
-      prepararMatrixTexto('matrix-p3');
-      prepararMatrixTexto('matrix-p4');
-
-      // activar zoom en la imagen
-      const zoomElements = hijo7.querySelectorAll('.zoom-img');
-      zoomElements.forEach(el => {
-        el.classList.remove('visible');
-        void el.offsetWidth; // reflow
-        el.classList.add('visible');
-      });
-    }
-  });
-}, { threshold: 0.5 });
-
-if (hijo7) observer7.observe(hijo7);
-
-
-// Función general para h1 y p con data-text
-function prepararMatrixTexto(elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  const texto = el.getAttribute('data-text');
-  el.textContent = '';
-
-  [...texto].forEach((letra, i) => {
-    const span = document.createElement('span');
-    if (letra === ' ') {
-      span.className = 'space';
-      span.innerHTML = '&nbsp;';
-    } else {
-      span.textContent = letra;
-      span.style.animationDelay = (i * 0.2) + 's';
-      span.style.animationName = 'matrixFade';
-    }
-    el.appendChild(span);
-  });
-
-  // activar ciclo olas después de Matrix
-  const spans = el.querySelectorAll('span');
-  const tiempoTotal = texto.length * 200;
-
-  // Inicia el efecto olas
-  setTimeout(() => {
-    spans.forEach(span => span.classList.add('colorCycle'));
-  }, tiempoTotal);
-
-  // Termina el efecto olas después de cierto tiempo (ej. 10s)
-  setTimeout(() => {
-    spans.forEach(span => span.classList.remove('colorCycle'));
-  }, tiempoTotal + 10000); // 10 segundos de olas
-}
-
-
-//div 8
-
-// Observer para hijo8
-const observerHijo8 = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Crear capa de píxeles encima
-      const overlay = document.createElement("div");
-      overlay.classList.add("overlay");
-      entry.target.appendChild(overlay);
-
-      // Generar 50 píxeles
-      for (let i = 0; i < 200; i++) {
-        const div = document.createElement("div");
-        div.classList.add("pixel");
-        overlay.appendChild(div);
-      }
-
-      // Animar desaparición aleatoria (revelando el contenido)
-      const pixels = overlay.querySelectorAll(".pixel");
-      pixels.forEach(pixel => {
-        const delay = Math.random() * 2000; // entre 0 y 2 segundos
-        setTimeout(() => {
-          pixel.classList.add("hide");
-        }, delay);
-      });
-
-      // Al final, quitar la capa para liberar el contenido
-      setTimeout(() => {
-        overlay.remove();
-      }, 2500);
-    }
-  });
-});
-
-// Observar el div hijo8
-const hijo8 = document.getElementById("hijo8");
-observerHijo8.observe(hijo8);
-
-//div4 silider
-function iniciarSliderDiv4() {
-  const hijo4 = document.querySelector(".hijo4");
-  const slides = hijo4.querySelector(".slides");
-  const dots = hijo4.querySelectorAll(".dot");
-  const slider = hijo4.querySelector(".slider");
-  
-
-  let index = 0;
-  let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  const total = dots.length;
-
-  function updateIndicator() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
-  }
-
-  slides.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-  });
-
-  slides.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (diff < -50 && index < total - 1) index++;
-    if (diff > 50 && index > 0) index--;
-
-    currentTranslate = -index * slider.clientWidth;
-    slides.style.transform = `translateX(${currentTranslate}px)`;
-    prevTranslate = currentTranslate;
-
-    updateIndicator();
-  });
-
-  // Inicializar
-  updateIndicator();
-}
-
-// Ejecutar al cargar la página
-document.addEventListener("DOMContentLoaded", iniciarSliderDiv4);
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const target = document.querySelector(".hijo4");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(target);
-});
-
-
-  // slider
-  
-  
-  
-
-const slides = document.querySelector('.slides');
-const dots = document.querySelectorAll('.dot');
-const slideSize = 300; // ancho del slider
-let index = 0;
-const totalSlides = document.querySelectorAll('.slides img').length;
-
-function showSlide(i) {
-  index = i;
-  slides.style.transform = `translateX(-${index * slideSize}px)`;
-
-  // actualizar dots
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === index);
-  });
-}
-
-function nextSlide() {
-  index++;
-  if (index >= totalSlides) index = 0;
-  showSlide(index);
-}
-
-// avanzar automático cada 3 segundos
-setInterval(nextSlide, 3000);
-
-// click en dots
-dots.forEach((dot, idx) => {
-  dot.addEventListener('click', () => showSlide(idx));
-});
-
+if (hijo2) observer2.observe(hijo2);
   </script>
 </body>
 </html>
