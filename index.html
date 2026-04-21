@@ -6,339 +6,310 @@
    ========================================= -->
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
+
+  <meta property="og:title" content="Invitaciones LuzNet">
+  <meta property="og:description" content="Invitacion digital web.">
+  <meta property="og:image" content="https://i.ibb.co/mFD8qrKb/portada-Luznet.jpg">
+  <meta property="og:url" content="https://felipe021284.github.io/INVITACI-N-DIGITAL/">
+
   <title>INVITACION DIGITAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Lobster&family=Pacifico&family=Shadows+Into+Light&family=Dancing+Script&family=Raleway&family=Oswald&family=Playfair+Display&family=Indie+Flower&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      margin: 0;
-      background-color: black;
-    }
-
-   .padre {
-   font-family: 'Dancing Script';
-   cursive;
-/*  font-family: 'Shadows Into Light', cursive;*/
-  display: flex;
-  flex-direction: column; /* apila verticalmente */
-  justify-content: flex-start; /* que inicie desde arriba */
-  align-items: center;
-  min-height: 100vh;
-  gap: 40px; /* espacio entre hijo1 y hijo2 */
+      body {
+  margin: 0;
+  background-color: black;
 }
-   
 
-    .hijo {
-     border: 1px solid pink;
+.padre {
+  font-family: 'Shadows Into Light', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra verticalmente */
+  align-items: center;       /* centra horizontalmente */
+  width: 100%;
+  min-height: 100vh;         /* ocupa toda la pantalla */
+  overflow-x: hidden;
+}
+
+/* Responsive: en PC los hijos en fila y centrados */
+@media (min-width: 768px) {
+  .padre {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hijo {
+    width: 400px;
+    height: 600px;
+    margin: 20px;
+  }
+}
+
+.hijo {
+font-family: 'Shadows Into Light';
+  border-radius: 10px;
+  border: 1px solid pink;
       box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-      width: 90%;
-      max-width: 400px;
-      height: 600px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      background-image: url("https://i.ibb.co/84QFW5M2/xv-a-os.jpg");
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 2s ease;
-      text-align: center;
-      margin:10px;
+  width: 90%;
+  max-width: 400px;
+  height: 600px;             /* altura fija para centrar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color:black;
+  background-image: url("https://i.ibb.co/84QFW5M2/xv-a-os.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  box-sizing: border-box;
+  opacity: 0; /* oculto hasta que se active */
+  transition: opacity 2s ease;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;         /* centrado horizontal en móvil */
+  animation: animationcolor 10s infinite;
+  text-align: center;        /* asegura que el texto se centre */
+}
+
+
+.hijo * {
+  position: relative;
+  z-index: 1;
+}
+
+.hijo p {
+font-size: 1.5rem;
+  margin: 0; /* elimina márgenes por defecto */
+}
+
+
+
+/* Clases activadas por Intersection Observer */
+.hijo.activo { opacity: 1; }
+.hijo1 h1 { opacity: 0; }
+.hijo1 p { opacity: 0; }
+.hijo1.activo h1 { animation: textoDerechaIzquierda 2s forwards; }
+.hijo1.activo p { animation: textoIzquierdaDerecha 2s forwards; }
+
+.hijo2 p { opacity: 0; }
+.hijo2.activo p { animation: zoomGiro 3s forwards; }
+
+.hijo3 h1 { opacity: 0; }
+.hijo3.activo h1 { animation: fadeIn 2s forwards; }
+
+/* Animaciones */
+@keyframes animationcolor {
+  0%,100% { color:deeppink; }
+  25% { color:black; }
+  50% { color:deeppink; }
+  75% { color:black; }
+}
+
+
+
+
+
+/* Imagen dentro del div 3 */
+.hijo3 img {
+  opacity: 0; /* estado inicial */
+  transform: rotate(0deg);
+}
+
+.hijo3.activo img {
+  animation: girar 5s ease-out forwards; /* duración ajustable */
+}
+
+
+
+/* Estilo del enlace */
+a {
+  text-decoration: none;
+  color: inherit; /* hereda el color del contenedor */
+  font-size: 2rem;
+  padding:5px;
+  width: 180px;
+  border-radius: 40px;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+}
+
+
+/*efecto hijo 3*/
+.hijo3 {
+  opacity: 0; /* estado inicial */
+}
+
+.hijo3.activo {
+  animation: encendidoLento 5s ease forwards; /* duración lenta */
+}
+
+.hijo3.activo h1,
+.hijo3.activo p {
+  animation: encendidoLento 5s ease forwards, animationcolor 10s infinite;
+}
+
+@keyframes matrixFall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hijo3 p,
+.hijo3 h1 {
+  opacity: 0;
+  display: inline-block; /* necesario para animar cada letra */
+}
+
+.hijo3.activo p,
+.hijo3.activo h1, 
+.hijo3.activo a
+{
+  animation: matrixFall 5s ease forwards,
+  animationcolor 10s infinite
+}
+
+/*efecto de pixel div 1*/
+
+
+    /* Overlay de píxeles solo sobre iframe hijo1 */
+    .hijo1 .iframe-wrapper {
+      position: relative;
+      width: 100%;
+      height: 200px;
     }
 
-    .hijo.visible {
+    .hijo1 .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .pixel {
+      background: black;
       opacity: 1;
-    }
-    
-    h1{
-        animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
-        font-size: 2.8em;
-    }
-    p{
-        font-family: Times New Roman;
-    }
-    
-    /* Animación de cambio de color */
-    @keyframes colorShift {
-      0%   { color:deeppink; text-shadow: 0 0 10px black; }
-      50%  { color: #FFFFFF; text-shadow: 0 0 15px black; }
-      100% { color:deeppink; text-shadow: 0 0 20px black
-      ; }
+      transition: opacity .1s ease;
+      aspect-ratio: 1 / 1;
     }
 
-    #matrix-text {
-      font-size: 2.8em;
-      white-space: pre;
-      animation: colorShift 3s infinite alternate;
+    .pixel.hide { opacity: 0; }
+
+    /* Zoom iframe hijo2 */
+    @keyframes zoomIn {
+      0% { transform: scale(0.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
-    /* Animación Matrix para cada letra */
-    #matrix-text span {
-      opacity: 0;
-      transform: translateY(-400px);
-      display: inline-block;
-      animation: caer 3s forwards;
-    }
-
-    @keyframes caer {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .space {
-      display: inline-block;
-      width: 0.5em; /* espacio visible */
-    }
-
-    /* Animaciones para los demás elementos */
-    #slide-p {
-    font-size: 1.5em;
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-    #slide-p.visible {
-      animation: slideRight 5s forwards, colorShift 3s infinite alternate;
-    }
-    @keyframes slideRight {
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    #link1 {
-    font-size: 1.5em;
-      opacity: 0;
-      transform: translateY(-400px);
-      text-decoration: none;
-      
-      font-family: Times New Roman;
-  border-radius: 40px;
-  padding: 15px;
-  width: 180px;
-  background-color: transparent;
-  border: 1px solid pink;
-      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-  text-align: center;
-  margin:10px;
-    }
-    #link1.visible {
-      animation: downLink 5s forwards, colorShift 3s infinite alternate;
-    }
-    @keyframes downLink {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    #link2 {
-      opacity: 0;
-      transform: rotate(-180deg);
-      
-      font-family: Times New Roman;
-  border-radius: 40px;
-  padding: 15px;
-  width: 180px;
-  background-color: transparent;
-  border: 1px solid pink;
-      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-  text-align: center;
-  margin:10px;
-    }
-    #link2.visible {
-      animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
-      text-decoration: none;
-      font-size: 1.5em;
-    }
-    @keyframes rotateLink {
-      to { opacity: 1; transform: rotate(0); }
-    }
-
-    #link3 {
+    .hijo2 iframe {
       opacity: 0;
       transform: scale(0.2);
-      text-decoration: none;
-      font-size: 1.5em;
-      font-family: Times New Roman;
-  border-radius: 40px;
-  padding: 15px;
-  width: 180px;
-  background-color: transparent;
-  border: 1px solid pink;
-      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
-  text-align: center;
-  margin:10px;
+      transition: none;
     }
-    #link3.visible {
-      animation: zoomLink 5s forwards ease-out, colorShift 3s infinite alternate;
-    }
-    @keyframes zoomLink {
-      to { opacity: 1; transform: scale(1); }
-    }
-    
-    .overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  z-index: 10;
-  pointer-events: none; /* no bloquea clics */
-}
 
-.pixel {
-  background: black; /* dorado ceremonial */
-  opacity: 1;
-  transition: opacity .1s ease;
-  aspect-ratio: 1 / 1;
-}
+    .hijo2.activo iframe {
+      animation: zoomIn 1.5s ease forwards;
+    }
 
-.pixel.hide {
-  opacity: 0;
-}
   </style>
+
+  
 </head>
 <body>
   <div class="padre">
-  
     <div class="hijo hijo1">
     <div class="overlay"></div>
-      <div class="seccion">
-      <h1 id="matrix-text" data-text="Lista de invitados"></h1>
     
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=596167547&single=true&range=B1:C50"></iframe>
-  </div>
-
-  <div class="seccion">
-    <h1>Conteo</h1>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTrbV0NfuoB99HAj3Ffcr_xbB2fXWbE9VS4g2Ffcj37an_ExLwoPKr9GRFWTT4am96FaeMY7tGXhdbV/pubhtml?gid=2041570483&single=true
-    "></iframe>
-  </div>
-    </div>
-    
-    
+    <iframe src="https://script.google.com/macros/s/AKfycbxE_tJrX8XRXCCpuLNUZPXFIERSuFL_y93FG9fDpHGELir1j4raRQuHVdvuWd5dXlPC/exec?page=control
+  "
+     width="100%" 
+  height="200px"  
+  style="border:none;"
+  
+  ></iframe>
+      </div>
     <div class="hijo hijo2">
-      <!-- data-text contiene la frase final -->
-      <h1 id="matrix-text" data-text="Enlace"></h1>
-       
-      <p id="slide-p">En este apartado va el enlace <br /> a la invitacion
+    <iframe src="https://script.google.com/macros/s/AKfycbw7PkJFA6dqz6OKnNwUfJcHxsgZHHtz296m5UgxoA6NKglNbY1X3T-xpoBORG2hxYdt/exec?page=consulta
+    
+    "
+    
+    width="85%" 
+ height="300" 
+ style="border:none;"></iframe>
+    </div>
+
+<div class="hijo hijo3">
+<h1 id="slide-p" data-text="Enlace">Enlace</h1>
+  <p id="slide-p">En este apartado va el enlace <br /> a la invitacion
           
       </p>
-      <a id="link1" href="sobre 1.html">Invitado </a>
-      
-    </div>
+      <a id="link1" href="sobre.html">Invitado </a>
+</div>
+
     
   </div>
-
-  <script>
-// Función genérica para preparar el efecto Matrix
-function prepararMatrixTexto(elemento) {
-  if (!elemento) return;
-
-  const texto = elemento.getAttribute('data-text');
-  elemento.textContent = ''; // limpiar contenido
-
-  const indices = [...texto.split('').keys()];
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]];
-  }
-
-  texto.split('').forEach((letra, i) => {
-    const span = document.createElement('span');
-    if (letra === ' ') {
-      span.className = 'space';
-    } else {
-      span.textContent = letra;
-      const delay = indices[i] * 0.2;
-      span.style.animationDelay = delay + 's';
+<script>
+    // Generar píxeles en overlay hijo1
+    function generarPixeles() {
+      const overlay = document.querySelector('.hijo1 .overlay');
+      overlay.innerHTML = "";
+      for (let i = 0; i < 200; i++) {
+        const px = document.createElement('div');
+        px.className = 'pixel';
+        overlay.appendChild(px);
+      }
     }
-    elemento.appendChild(span);
-  });
-}
 
-// Generar píxeles automáticamente para overlay en hijo1
-const overlay = document.querySelector('.hijo1 .overlay');
-if (overlay) {
-  for (let i = 0; i < 200; i++) {
-    const px = document.createElement('div');
-    px.className = 'pixel';
-    overlay.appendChild(px);
-  }
-}
-
-// Animar el pixel reveal con orden aleatorio
-function pixelReveal() {
-  const pixels = Array.from(document.querySelectorAll('.hijo1 .pixel'));
-
-  // Mezclar el array de píxeles (Fisher-Yates)
-  for (let i = pixels.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pixels[i], pixels[j]] = [pixels[j], pixels[i]];
-  }
-
-  // Ocultar en orden aleatorio
-  pixels.forEach((px, i) => {
-    setTimeout(() => {
-      px.classList.add('hide');
-    }, i * 10);
-  });
-}
-
-// Observer para hijo1 (Matrix + Pixel)
-const hijo1 = document.querySelector('.hijo1');
-const observer1 = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-
-      // Reiniciar píxeles
-      document.querySelectorAll('.hijo1 .pixel').forEach(px => {
-        px.classList.remove('hide');
+    // Animación pixel reveal
+    function pixelReveal() {
+      const pixels = Array.from(document.querySelectorAll('.hijo1 .pixel'));
+      for (let i = pixels.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pixels[i], pixels[j]] = [pixels[j], pixels[i]];
+      }
+      pixels.forEach((px, i) => {
+        setTimeout(() => { px.classList.add('hide'); }, i * 10);
       });
-
-      // Matrix en hijo1
-      const matrix1 = document.querySelector('.hijo1 #matrix-text');
-      prepararMatrixTexto(matrix1);
-
-      // Pixel reveal aleatorio
-      pixelReveal();
     }
-  });
-}, { threshold: 0.5 });
 
-if (hijo1) observer1.observe(hijo1);
+    // Observer general
+    const hijos = document.querySelectorAll('.hijo');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('activo');
+          void entry.target.offsetWidth;
+          entry.target.classList.add('activo');
 
-// Observer para hijo2 (Matrix + enlaces y texto)
-const hijo2 = document.querySelector('.hijo2');
-const observer2 = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-
-      // Matrix en hijo2
-      const matrix2 = document.querySelector('.hijo2 #matrix-text');
-      prepararMatrixTexto(matrix2);
-
-      // Animaciones de enlaces
-      ['slide-p','link1','link2','link3'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.classList.remove('visible');
-          void el.offsetWidth;
-          el.classList.add('visible');
+          // Si es hijo1 → regenerar y ejecutar pixel reveal
+          if (entry.target.classList.contains('hijo1')) {
+            generarPixeles();
+            pixelReveal();
+          }
+          // Si es hijo2 → el iframe hace zoom por CSS
         }
       });
-    }
-  });
-}, { threshold: 0.5 });
+    }, { threshold: 0.5 });
 
-if (hijo2) observer2.observe(hijo2);
+    hijos.forEach(hijo => observer.observe(hijo));
   </script>
+  
 </body>
 </html>
